@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">RTJ_dochadzka</string>
+    <string name="app_name">RTJ_app</string>
+    <string name="menu_platba">Platba</string>
+    <string name="menu_evidencia_dochadzka">Evidencia dochádzky</string>
+    <string name="menu_dochadzka">Štatistika dochádzky</string>
+    <string name="menu_trening">Manažment tréningov</string>
 </resources>
