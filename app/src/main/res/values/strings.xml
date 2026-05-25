@@ -7,4 +7,5 @@
     <string name="ok">OK</string>
     <string name="spat">Späť</string>
     <string name="prilozit_kartu">Priložte kartu</string>
+    <string name="pocet_treningov">Počet absolvovaných tréningov</string>
 </resources>
