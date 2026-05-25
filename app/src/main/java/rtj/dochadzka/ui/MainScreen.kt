@@ -63,23 +63,12 @@ fun MainScreen() {
 
         menuItems.forEach { item ->
 
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.clickable {
+            AppButton(
+                text = item.title,
+                icon = item.icon,
+                onClick = {}
 
-                }
-            ) {
-
-                Icon(
-                    imageVector = item.icon,
-                    contentDescription = item.title
-                )
-
-                Text(
-                    text = item.title,
-                    style = MaterialTheme.typography.bodyLarge
-                )
-            }
+            )
 
             Spacer(modifier = Modifier.height(32.dp))
         }
