@@ -4,4 +4,6 @@
     <string name="menu_evidencia_dochadzka">Evidencia dochádzky</string>
     <string name="menu_dochadzka">Štatistika dochádzky</string>
     <string name="menu_trening">Manažment tréningov</string>
+    <string name="ok">OK</string>
+    <string name="spat">Späť</string>
 </resources>

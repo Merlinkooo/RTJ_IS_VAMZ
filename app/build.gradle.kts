@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "rtj.dochadzka"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "rtj.dochadzka"
