@@ -58,7 +58,7 @@ fun AppScreen(
                 currentScreen = currentScreen,
                 canNavigateBack = currentRoute != RTJAppScreen.Main.name,
                 navigateBack = {
-                    navController.navigate(RTJAppScreen.Main.name)
+                    navController.navigateUp()
                 }
             )
         }

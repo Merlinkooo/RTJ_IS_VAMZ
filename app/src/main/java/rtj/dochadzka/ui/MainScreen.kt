@@ -18,7 +18,9 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.DateRange
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.sharp.Create
 import androidx.compose.material.icons.sharp.Face
 import androidx.compose.material3.Button
@@ -53,7 +55,7 @@ fun MainScreen(
 
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -78,7 +80,7 @@ fun MainScreen(
 
         AppButton(
             text = stringResource(R.string.menu_statistika),
-            icon = Icons.Outlined.DateRange,
+            icon = Icons.Outlined.Info,
             onClick = { navController.navigate(RTJAppScreen.Summary.name) }
 
         )
@@ -87,7 +89,7 @@ fun MainScreen(
 
         AppButton(
             text = stringResource(R.string.menazment_treningov),
-            icon = Icons.Outlined.DateRange,
+            icon = Icons.Outlined.Add,
             onClick = { navController.navigate(RTJAppScreen.TrainingManagement.name) }
 
         )
