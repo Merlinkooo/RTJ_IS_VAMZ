@@ -27,6 +27,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import rtj.dochadzka.R
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.compose.currentBackStackEntryAsState
 
 enum class RTJAppScreen(@StringRes val title: Int) {
     Main(title = R.string.app_name),
@@ -37,15 +38,25 @@ enum class RTJAppScreen(@StringRes val title: Int) {
 }
 
 @Composable
-fun RTJApp(
+fun AppScreen(
     navController: NavHostController = rememberNavController()
 ) {
+
+    val backStackEntry by navController.currentBackStackEntryAsState()
+
+    val currentRoute =
+        backStackEntry?.destination?.route
+
+    val currentScreen =
+        RTJAppScreen.values().find {
+            it.name == currentRoute
+        } ?: RTJAppScreen.Main
 
     Scaffold(
         topBar = {
             RTJAppBar(
-                currentScreen = RTJAppScreen.Main,
-                canNavigateBack = false,
+                currentScreen = currentScreen,
+                canNavigateBack = currentRoute != RTJAppScreen.Main.name,
                 navigateBack = {
                     navController.navigate(RTJAppScreen.Main.name)
                 }
@@ -59,7 +70,7 @@ fun RTJApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(route = RTJAppScreen.Main.name){
-                MainScreen()
+                MainScreen(navController)
             }
 
             composable(route = RTJAppScreen.ScanPayment.name) {

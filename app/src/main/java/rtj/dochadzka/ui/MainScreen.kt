@@ -36,6 +36,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 import rtj.dochadzka.R
 
@@ -46,14 +47,10 @@ data class MenuItem(
 )
 
 @Composable
-fun MainScreen(modifier : Modifier = Modifier) {
+fun MainScreen(
+    navController : NavController,
+    modifier : Modifier = Modifier) {
 
-    val menuItems = listOf(
-        MenuItem(stringResource(R.string.platba), Icons.Filled.ShoppingCart),
-        MenuItem(stringResource(R.string.evidencia_dochadzka), Icons.Outlined.DateRange),
-        MenuItem(stringResource(R.string.menu_statistika), Icons.Sharp.Face),
-        MenuItem(stringResource(R.string.menu_trening), Icons.Sharp.Create)
-    )
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -61,17 +58,40 @@ fun MainScreen(modifier : Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        menuItems.forEach { item ->
-
-            AppButton(
-                text = item.title,
-                icon = item.icon,
-                onClick = {}
+        AppButton(
+                text = stringResource(R.string.platba),
+                icon = Icons.Filled.ShoppingCart,
+                onClick = { navController.navigate(RTJAppScreen.ScanPayment.name) }
 
             )
 
-            Spacer(modifier = Modifier.height(32.dp))
-        }
+        Spacer(modifier = Modifier.height(32.dp))
+
+        AppButton(
+            text = stringResource(R.string.evidencia_dochadzka),
+            icon = Icons.Outlined.DateRange,
+            onClick = { navController.navigate(RTJAppScreen.ScanAttendance.name) }
+
+        )
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        AppButton(
+            text = stringResource(R.string.menu_statistika),
+            icon = Icons.Outlined.DateRange,
+            onClick = { navController.navigate(RTJAppScreen.Summary.name) }
+
+        )
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        AppButton(
+            text = stringResource(R.string.menazment_treningov),
+            icon = Icons.Outlined.DateRange,
+            onClick = { navController.navigate(RTJAppScreen.TrainingManagement.name) }
+
+        )
+
     }
 }
 
@@ -79,7 +99,7 @@ fun MainScreen(modifier : Modifier = Modifier) {
 @Composable
 fun MainScreenPreview() {
 
-        MainScreen()
+        //MainScreen()
 
 }
 
