@@ -26,6 +26,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.*
 import androidx.compose.ui.res.stringResource
 import rtj.dochadzka.R
+import java.time.LocalDate
 
 data class Child(
     val id: Int,
@@ -81,15 +82,10 @@ fun ChildrenList(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ChildAttendanceScreen(
-    childName: String,
-    trainings: List<TrainingAttendance>
+fun SummaryScreen(
+
 ) {
-    val children = listOf(
-        "Jožko Mrkvička",
-        "Milan Krátky",
-        "Dávid Silný"
-    )
+
 
 
 
@@ -108,21 +104,19 @@ fun ChildAttendanceScreen(
         mutableStateOf(months.last())
     }
 
-
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
 
-        Text(
-            text = childName,
-            style = MaterialTheme.typography.headlineMedium
-        )
+//        ChildrenList(children) {
+//
+//        }
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // MONTH PICKER
+
         ExposedDropdownMenuBox(
             expanded = expanded,
             onExpandedChange = {
@@ -171,7 +165,7 @@ fun ChildAttendanceScreen(
         Spacer(modifier = Modifier.height(32.dp))
 
         Text(
-            text = "${stringResource(R.string.pocet_treningov)}:  / ${trainings.size}",
+            text = "${stringResource(R.string.pocet_treningov)}:   ",
             style = MaterialTheme.typography.titleMedium
         )
 
@@ -185,36 +179,38 @@ fun ChildAttendanceScreen(
     }
 }
 
+
 @Composable
-fun DetailAttendance(trainings : List<Training>) {
+fun DetailAttendance(child : Child, month: LocalDate) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
 
-        items(trainings.count()) { index ->
 
-            val training = trainings.get(index)
-            Card(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-
-                    Text(training.date)
-
-//                    Text(
-//                        if ()
-//                            "✓"
-//                        else
-//                            "✗"
-//                    )
-                }
-            }
-        }
-    }
+//        items(trainings.count()) { index ->
+//
+//            val training = trainings.get(index)
+//            Card(
+//                modifier = Modifier.fillMaxWidth()
+//            ) {
+//
+//                Row(
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .padding(16.dp),
+//                    horizontalArrangement = Arrangement.SpaceBetween
+//                ) {
+//
+//                    Text(training.date)
+//
+////                    Text(
+////                        if ()
+////                            "✓"
+////                        else
+////                            "✗"
+////                    )
+//                }
+//            }
+//        }
+   }
 }

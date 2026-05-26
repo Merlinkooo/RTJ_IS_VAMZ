@@ -46,12 +46,12 @@ data class MenuItem(
 )
 
 @Composable
-fun MainScreen() {
+fun MainScreen(modifier : Modifier = Modifier) {
 
     val menuItems = listOf(
-        MenuItem(stringResource(R.string.menu_platba), Icons.Filled.ShoppingCart),
-        MenuItem(stringResource(R.string.menu_dochadzka), Icons.Outlined.DateRange),
-        MenuItem(stringResource(R.string.menu_evidencia_dochadzka), Icons.Sharp.Face),
+        MenuItem(stringResource(R.string.platba), Icons.Filled.ShoppingCart),
+        MenuItem(stringResource(R.string.evidencia_dochadzka), Icons.Outlined.DateRange),
+        MenuItem(stringResource(R.string.menu_statistika), Icons.Sharp.Face),
         MenuItem(stringResource(R.string.menu_trening), Icons.Sharp.Create)
     )
 
